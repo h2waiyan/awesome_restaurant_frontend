@@ -79,8 +79,14 @@ const RegisterPage = () => {
                     <input type="password" onChange={(e) => setUserData({ ...userData, passwordConfirm: e.target.value })}
                         value={userData.passwordConfirm} id="passwordConfirm" className="w-full border text-gray-700 border-gray-300 p-2 mb-4 rounded" />
 
-                    <button type="submit" className="bg-blue-500 text-white font-bold py-2 px-4 rounded w-full" disabled={loading}>
-                        {loading ? <div className='text-center'><Loading /></div> : "Register"}
+                    <button type="submit" disabled={loading} className={`bg-blue-500 text-white font-bold py-2 px-4 rounded w-full ${loading ? 'opacity-50' : ''}`}>
+                        {loading ?
+                            <div className='flex justify-center'>
+                                <Loading />
+                            </div>
+                            :
+                            "Register"
+                        }
                     </button>
                 </form>
             </div>
